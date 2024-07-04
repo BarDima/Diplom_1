@@ -40,3 +40,11 @@ class TestBurger:
         burger.add_ingredient(self.sauce_mock)  # Add the sauce
         expected_receipt = "(==== Флюоресцентная булка R2-D3 ====)\n= начинка Мясо бессмертных моллюсков Protostomia =\n= соус Соус Spicy-X =\n(==== Флюоресцентная булка R2-D3 ====)\n\nPrice: 3403"
         assert burger.get_receipt() == expected_receipt
+
+    def test_remove_ingredient(self):
+        burger = Burger()
+        burger.set_buns(self.bun_mock)
+        burger.add_ingredient(self.filling_mock)
+        burger.add_ingredient(self.sauce_mock)
+        burger.remove_ingredient(0)
+        assert burger.ingredients == [self.sauce_mock]
