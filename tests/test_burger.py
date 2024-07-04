@@ -48,3 +48,11 @@ class TestBurger:
         burger.add_ingredient(self.sauce_mock)
         burger.remove_ingredient(0)
         assert burger.ingredients == [self.sauce_mock]
+
+    def test_move_ingredient(self):
+        burger = Burger()
+        burger.set_buns(self.bun_mock)
+        burger.add_ingredient(self.filling_mock)
+        burger.add_ingredient(self.sauce_mock)
+        burger.move_ingredient(1, 0)
+        assert burger.ingredients == [self.sauce_mock, self.filling_mock]
